@@ -1,6 +1,5 @@
 from typing import Type
 from rest_framework import mixins, viewsets
-from rest_framework.generics import GenericAPIView
 from rest_framework.serializers import Serializer
 
 from cinema.models import Actor, CinemaHall, Genre, Movie, MovieSession
@@ -20,6 +19,9 @@ from cinema.serializers import (
 class GenreViewSet(
     mixins.CreateModelMixin,
     mixins.ListModelMixin,
+    mixins.RetrieveModelMixin,
+    mixins.UpdateModelMixin,
+    mixins.DestroyModelMixin,
     viewsets.GenericViewSet,
 ):
     queryset = Genre.objects.all()
@@ -29,6 +31,9 @@ class GenreViewSet(
 class ActorViewSet(
     mixins.CreateModelMixin,
     mixins.ListModelMixin,
+    mixins.RetrieveModelMixin,
+    mixins.UpdateModelMixin,
+    mixins.DestroyModelMixin,
     viewsets.GenericViewSet,
 ):
     queryset = Actor.objects.all()
